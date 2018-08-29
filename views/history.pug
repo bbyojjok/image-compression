@@ -1,0 +1,63 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		title ImageCompression
+		link(rel='stylesheet', href='/public/ui.css')
+	body
+		div(id='header')
+			h1 History
+			a(class='btn-link', href='/') Back
+		div(id='history')
+			if (list.length == 0)
+				div(class='no-result') Can't find history.
+			else
+				ul(class='info')
+					li row :
+						span(class='totalCount')= page.totalCount
+					li page :
+						span(class='totalPage')= page.totalPage
+				table
+					colgroup
+						- for (var i=0; i< (Object.keys(list[0]).length - 1); i++)
+							col(width='*')
+					thead
+						tr
+							th No
+							th Ip
+							th Browser
+							th Zipfile
+							th Before size
+							th After size
+							th Compressibility
+							th Date
+					tbody
+						each val in list
+							tr
+								td= val.id
+								td= val.ip
+								td= val.browser
+								td
+									a(href='/' + val.zip_url)= '/'+val.zip_url
+								td= val.before_filesize
+								td= val.after_filesize
+								td= val.compressibility
+								td= val.created
+				div(class='pagination')
+					if (page.prevPage)
+						a(href='/history/'+page.prevPage) &lt;
+					else
+						span
+					- for (var i=page.startPage; i<=page.endPage; i++)
+						if (i == page.currentPage)
+							a(href='/history/'+i, class='current')= i
+						else
+							a(href='/history/'+i)= i
+					if (page.nextPage)
+						a(href='/history/'+page.nextPage) &gt;
+					else
+						span
+		script(src='/public/jquery-2.2.0.min.js')
+		script(src='/public/ui.js')

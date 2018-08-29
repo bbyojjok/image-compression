@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> ImageCompression </title>
+	<link rel="stylesheet" href="/public/ui.css">
+</head>
+<body>
+	<div id="header">
+		<h1>ImageCompression</h1>
+		<a class="btn-link" href="/history">Go history</a>
+	</div>
+	<div id="completedArea"></div>
+	<div class="fileBox">
+		<div id="uploadArea">
+			<input id="fileUploadInput" type="file" name="userFile[]" multiple="multiple" accept=".jpg,.jpeg,.png,.gif" />
+			<a href="#"><span class="msg">Drag files here or click to upload</span></a>
+		</div>
+		<div class="btnArea">
+			<a id="fileUploadSubmit" href="#">Upload</a>
+		</div>
+		<div id="uploadList"></div>
+	</div>
+	<div id="dimmed">
+		<div class="inner">
+			<span class="img"><img src="/public/loading.svg" alt="loading" /></span>
+			<p class="msg">
+				<span class="txt">image uploading</span>
+				<span class="percent"></span>
+			</p>
+			<div class="percentBar"><span></span></div>
+		</div>
+	</div>
+	<from id="fileUpload" action="/api/uploads" method="post" enctype="multipart/form-data"></from>
+	
+	<script src="/public/jquery-2.2.0.min.js"></script>
+	<script src="/public/ui.js"></script>
+</body>
+</html>
