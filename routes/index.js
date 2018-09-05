@@ -163,7 +163,7 @@ route.post('/api/upload', (req, res) => {
 				inputPath, 
 				outputPath, 
 				{ compress_force: false, statistic: true, autoupdate: false }, false,
-				{ jpg: { engine: 'mozjpeg', command: ['-quality', '85'] }},
+				{ jpg: { engine: 'mozjpeg', command: ['-quality', '90'] }},
 				{ png: { engine: 'pngquant', command: ['--quality=90-100'] }},
 				{ svg: { engine: 'svgo', command: '--multipass' }},
 				{ gif: { engine: 'gifsicle', command: ['--colors', '225'] }},
