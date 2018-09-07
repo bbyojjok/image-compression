@@ -9,7 +9,6 @@ const port = 889;
 app.locals.pretty = true;
 app.set('views', './views');
 app.set('view engine', 'pug');
-app.set('trust proxy', true);
 
 app.use(requestIp.mw());
 app.use(bodyParser.urlencoded({ extended: false }));
