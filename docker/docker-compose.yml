@@ -1,0 +1,17 @@
+version: '2'
+services:
+ app:
+  build: ./application
+  container_name: imagecompression_app
+  ports:
+   - "889:889"
+  depends_on:
+   - db
+  network_mode: "host"
+ db:
+  build: ./database
+  container_name: imagecompression_db
+  restart: always
+  network_mode: "bridge"
+  environment:
+   - MYSQL_ALLOW_EMPTY_PASSWORD=yes
