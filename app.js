@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const requestIp = require('request-ip');
 const route = require('./routes');
 const app = express();
@@ -12,6 +13,7 @@ app.set('view engine', 'pug');
 
 app.use(requestIp.mw());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(compression());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/', route);
