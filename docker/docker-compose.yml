@@ -12,6 +12,15 @@ services:
   build: ./database
   container_name: imagecompression_db
   restart: always
-  network_mode: "bridge"
   environment:
    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  networks:
+   frontend:
+    ipv4_address: 10.5.0.5
+networks:
+ frontend:
+  driver: bridge
+  ipam:
+   config:
+    - subnet: 10.5.0.0/16
+      gateway: 10.5.0.1

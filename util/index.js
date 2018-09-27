@@ -9,7 +9,6 @@ const getUseragent = req => {
 
 const getIpAddress = req => {
 	let ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':').pop();
-	//if (ip === '1' || ip === '127.0.0.1' || ip === '10.120.13.129') ip = 'localhost';
 	return ip;
 }
 

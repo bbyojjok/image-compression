@@ -10,7 +10,6 @@ const { getUseragent, getIpAddress, formatBytes } = require('../util');
 const route = require('express').Router();
 
 route.get('/', (req, res) => {
-	console.log('# req.clientIp:', req.clientIp);
 	res.sendFile(path.join(__dirname, '../', 'views/index.html'));
 });
 
