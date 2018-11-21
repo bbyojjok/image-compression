@@ -19,5 +19,5 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/', route);
 
 app.listen(port, () => {
-	console.log(`Connected, ${port} port !`);
+  console.log(`Connected, ${port} port !`);
 });
